@@ -110,15 +110,19 @@ public class Robot extends TimedRobot {
     m_drive.TankDrive((m_driver.getLeftY())*0.8, (-(m_driver.getRightY()))*0.8);
     if (m_driver.getRawButton(5)) {
       //these have a max range of (-1 to +1)
-      m_spinnyboi2.m_intake.set(-1.0);
       m_spinnyboi2.m_feed.set(-1.0);
-    } else if (m_driver.getRawButton(6)) {
+      m_spinnyboi2.m_intake_shooter.set(-1.0);
+    } else if (m_driver.getRawButton(1)) {
       //these have a max range of (-1 to +1)
-      m_spinnyboi2.m_intake.set(1.0);
-      m_spinnyboi2.m_feed.set(-1.0);
-    } else {
+      m_spinnyboi2.m_intake_shooter.set(-1.0);
+      
+    } else if (m_driver.getRawButton(6)){
+      m_spinnyboi2.m_feed.set(1.0);
+       m_spinnyboi2.m_intake_shooter.set(-1.0);
+    } 
+    else {
       //these have a max range of (-1 to +1)
-      m_spinnyboi2.m_intake.stopMotor();
+      m_spinnyboi2.m_intake_shooter.stopMotor();
       m_spinnyboi2.m_feed.stopMotor();
     }
   }
