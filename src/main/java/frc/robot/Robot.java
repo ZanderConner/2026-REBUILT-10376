@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -30,6 +31,7 @@ public class Robot extends TimedRobot {
 
   private final RobotContainer m_robotContainer;
   private final SpinnyBoi2 m_spinnyboi2 = new SpinnyBoi2();
+  //private final SpinnyBoi2 m_FalconShooter = new SpinnyBoi2();
 
   private final XboxController m_driver = new XboxController(0);
 
@@ -108,22 +110,42 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     m_drive.TankDrive((m_driver.getLeftY())*0.8, (-(m_driver.getRightY()))*0.8);
+    
     if (m_driver.getRawButton(5)) {
-      //these have a max range of (-1 to +1)
-      m_spinnyboi2.m_feed.set(-1.0);
-      m_spinnyboi2.m_intake_shooter.set(-1.0);
+      // LB
+          //these have a max range of (-1 to +1)
+      // m_spinnyboi2.m_feed.set(-1.0);
+      // m_spinnyboi2.m_intake_shooter.set(-1.0);
+
+                            m_spinnyboi2.setShooterVoltage(.0);
+                            m_spinnyboi2.setFeederVoltage(.0);
+
     } else if (m_driver.getRawButton(1)) {
-      //these have a max range of (-1 to +1)
-      m_spinnyboi2.m_intake_shooter.set(-1.0);
-      
+      // A
+          //these have a max range of (-1 to +1)
+      // m_spinnyboi2.m_intake_shooter.set(-1.0);
+
+                            m_spinnyboi2.setShooterVoltage(0);
+                            m_spinnyboi2.setFeederVoltage(0);
+
     } else if (m_driver.getRawButton(6)){
-      m_spinnyboi2.m_feed.set(1.0);
-       m_spinnyboi2.m_intake_shooter.set(-1.0);
+      // RB
+          //these have a max range of (-1 to +1)
+      // m_spinnyboi2.m_feed.set(1.0);
+      //   m_spinnyboi2.m_intake_shooter.set(-1.0);
+
+                            m_spinnyboi2.setShooterVoltage(0);
+                            m_spinnyboi2.setFeederVoltage(0);
+
     } 
     else {
-      //these have a max range of (-1 to +1)
-      m_spinnyboi2.m_intake_shooter.stopMotor();
-      m_spinnyboi2.m_feed.stopMotor();
+             //these have a max range of (-1 to +1)
+      // m_spinnyboi2.m_intake_shooter.stopMotor();
+      // m_spinnyboi2.m_feed.stopMotor();
+
+                            m_spinnyboi2.setShooterVoltage(0);
+                            m_spinnyboi2.setFeederVoltage(0);
+
     }
   }
 

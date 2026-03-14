@@ -6,8 +6,12 @@ import com.revrobotics.spark.SparkBase.ResetMode;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 
+// Possible Nova Controllers
+// import com.thethriftybot.devices.ThriftyNova;
+// import com.thethriftybot.devices.ThriftyNova.CurrentType;
+
+
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-// Removed unused import: MotorController
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.Drivek;
 import static frc.robot.Constants.Drivek.kLeftFollowerCANID;
@@ -16,14 +20,23 @@ import static frc.robot.Constants.Drivek.kRightFollowerCANID;
 import static frc.robot.Constants.Drivek.kRightLeaderCANID;
 
 public class Drive extends SubsystemBase {
-    private SparkMax m_leftLeader = new SparkMax(kLeftLeaderCANID, MotorType.kBrushed);
-    private SparkMax m_leftFollower = new SparkMax(kLeftFollowerCANID, MotorType.kBrushed);
+    private SparkMax m_leftLeader = new SparkMax(kLeftLeaderCANID, MotorType.kBrushless);
+    private SparkMax m_leftFollower = new SparkMax(kLeftFollowerCANID, MotorType.kBrushless);
 
-    private SparkMax m_rightLeader = new SparkMax(kRightLeaderCANID, MotorType.kBrushed);
-    private SparkMax m_rightFollower = new SparkMax(kRightFollowerCANID, MotorType.kBrushed);
+    private SparkMax m_rightLeader = new SparkMax(kRightLeaderCANID, MotorType.kBrushless);
+    private SparkMax m_rightFollower = new SparkMax(kRightFollowerCANID, MotorType.kBrushless);
 
     public SparkMaxConfig kLeftFollowerConfigs = new SparkMaxConfig();
     public SparkMaxConfig kRightFollowerConfigs = new SparkMaxConfig();
+
+    // Possible Nova Controllers
+    // public final ThriftyNova  m_leftLeader = new ThriftyNova (kLeftLeaderCANID);
+    // public final ThriftyNova  m_leftFollower = new ThriftyNova (kLeftFollowerCANID);
+    // public final ThriftyNova  m_rightLeader = new ThriftyNova (kRightLeaderCANID);
+    // public final ThriftyNova  m_rightFollower = new ThriftyNova (kRightFollowerCANID);
+
+
+
 
     @SuppressWarnings("removal")
     public Drive() {
