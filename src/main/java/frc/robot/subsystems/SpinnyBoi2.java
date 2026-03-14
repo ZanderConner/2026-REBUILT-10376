@@ -1,5 +1,7 @@
 package frc.robot.subsystems;
 
+import static edu.wpi.first.units.Units.RPM;
+
 // import com.revrobotics.spark.SparkMax;
 // import com.revrobotics.spark.SparkLowLevel.MotorType;
 // import com.revrobotics.spark.config.SparkMaxConfig;
@@ -39,7 +41,8 @@ public class SpinnyBoi2 extends SubsystemBase {
         TalonFXConfiguration shooterConfig = new TalonFXConfiguration();
         shooterConfig.Voltage.PeakForwardVoltage = 12;
         shooterConfig.Voltage.PeakReverseVoltage = -12;
-        shooterConfig.CurrentLimits.StatorCurrentLimit = 40.0;
+        shooterConfig.CurrentLimits.StatorCurrentLimit = 70.0;
+        shooterConfig.CurrentLimits.StatorCurrentLimitEnable = true;
         shooterConfig.CurrentLimits.SupplyCurrentLimit = 40.0;
         shooterConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
         shooterConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
@@ -47,7 +50,8 @@ public class SpinnyBoi2 extends SubsystemBase {
         TalonFXConfiguration feederConfig = new TalonFXConfiguration();
         feederConfig.Voltage.PeakForwardVoltage = 12;
         feederConfig.Voltage.PeakReverseVoltage = -12;
-        feederConfig.CurrentLimits.StatorCurrentLimit = 40.0;
+        feederConfig.CurrentLimits.StatorCurrentLimit = 70.0;
+        shooterConfig.CurrentLimits.StatorCurrentLimitEnable = true;
         feederConfig.CurrentLimits.SupplyCurrentLimit = 40.0;
         feederConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
         feederConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
